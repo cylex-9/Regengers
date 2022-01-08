@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import com.team7.regengers.R;
 import com.team7.regengers.networking.JsonHeroResponse;
@@ -21,6 +24,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
     private List<JsonResponse> theResponse = new ArrayList<>();
     private static int currentPart = 0;
+    MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,13 +78,14 @@ public class RecyclerActivity extends AppCompatActivity {
             }
         });
 
-        // Set an Adapter to handle the files
-        recyclerView.setAdapter(new MyAdapter(getDataList(), new MyAdapter.OnItemClickListener() {
+        myAdapter = new MyAdapter(getDataList(), new MyAdapter.OnItemClickListener() {
             @Override
             public void onClick(View v, String data) {
                 // Will add this later
             }
-        }));
+        });
+        // Set an Adapter to handle the files
+        recyclerView.setAdapter(myAdapter);
     }
 
     private List<JsonHeroResponse> getDataList() {
@@ -93,4 +98,30 @@ public class RecyclerActivity extends AppCompatActivity {
         return list;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.search, menu);
+        MenuItem menuItem = menu.findItem(R.id.search_action);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setQueryHint("Search your favourite hero..");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                myAdapter.getFilter().filter(newText);
+
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
 }

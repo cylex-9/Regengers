@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Regengers</string>
+    <string name="login">Login</string>
+    <string name="ListOfHeroes">List of Heroes</string>
+    <string name="small_Login">Click Here To Login</string>
+    <string name="title_activity_network">NetworkActivity</string>
+    <string name="next_page">Next Page</string>
+    <string name="previous_page">Previous Page</string>
+
+</resources>

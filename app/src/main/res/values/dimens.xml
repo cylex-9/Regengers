@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="minimum_size">45dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="big_padding">75dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

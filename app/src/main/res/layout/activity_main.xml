@@ -38,13 +38,13 @@
         android:layout_marginBottom="@dimen/default_padding"
         android:text="Or"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/click_to_login"
+        app:layout_constraintBottom_toTopOf="@id/logInBtn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ListButton" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/click_to_login"
+        android:id="@+id/logInBtn"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,6 +54,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/or" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homePageBtn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Page"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logInBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,33 +62,33 @@ public class SignupActivity extends AppCompatActivity {
         name=findViewById(R.id.name);
         surname=findViewById(R.id.surname);
 
-//        birthCalendar=findViewById(R.id.birthCalendar);
-//        final Calendar calendar= Calendar.getInstance();
-//        calendar.add(Calendar.YEAR, -12);
-//        final int year=calendar.get(Calendar.YEAR);
-//        final int month=calendar.get(Calendar.MONTH);
-//        final int day=calendar.get(Calendar.DAY_OF_MONTH);
+        birthCalendar=findViewById(R.id.birthCalendar);
+        final Calendar calendar= Calendar.getInstance();
+        calendar.add(Calendar.YEAR, -12);
+        final int year=calendar.get(Calendar.YEAR);
+        final int month=calendar.get(Calendar.MONTH);
+        final int day=calendar.get(Calendar.DAY_OF_MONTH);
 
 
-//        //birthday
-//        birthCalendar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                DatePickerDialog datePickerDialog=new DatePickerDialog(
-//                        SignupActivity.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,setListener,year,month,day);
-//                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
-//                datePickerDialog.show();
-//            }
-//        });
-//
-//        setListener=new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                month=month;
-//                String date=day+"/"+month+"/"+year;
-//                birthCalendar.setText(date);
-//            }
-//        };
+        //birthday
+        birthCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog=new DatePickerDialog(
+                        SignupActivity.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,setListener,year,month,day);
+                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+                datePickerDialog.show();
+            }
+        });
+
+        setListener=new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month=month;
+                String date=day+"/"+month+"/"+year;
+                birthCalendar.setText(date);
+            }
+        };
 
         firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();

@@ -184,6 +184,56 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        //birthday
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="5dp"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:elevation="0dp"
+                android:gravity="center_vertical"
+                android:text="Birthday:"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/teal_700"
+                android:textSize="18sp"
+                tools:ignore="RtlCompat" />
+
+            <Button
+                android:id="@+id/birthCalendar"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:hint="Select your Birthday"
+                android:textAlignment="center"
+
+                android:textColor="@color/bluepurple_regen"
+                android:textSize="15sp"
+                app:backgroundTint="@android:color/background_light"
+                app:cornerRadius="15dp"
+                app:strokeColor="@color/bluepurple_regen"
+
+                app:strokeWidth="2dp"
+                tools:ignore="RtlCompat" />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:text="*Optional"/>
+
 
         <Button
             android:id="@+id/signUpBtn2"

@@ -53,8 +53,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
 
         //init db
-        firebaseAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
+        //firebaseAuth = FirebaseAuth.getInstance();
+        //db = FirebaseFirestore.getInstance();
 
         //side menu
         navigationView=findViewById(R.id.side_menu);
@@ -62,8 +62,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         menuIcon=findViewById(R.id.menuIcon);
 
         //update username
-        updateNavHeader();
-        loginCounter();
+        //updateNavHeader();
+
         //call side_menu method
         navigationDrawer();
 
@@ -163,44 +163,27 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     //update header
-    public void  updateNavHeader(){
+//    public void  updateNavHeader(){
+//
+//        View headerView = navigationView.getHeaderView(0);
+//        TextView navUsername =  headerView.findViewById(R.id.usernameHeader);
+//        userID = firebaseAuth.getCurrentUser().getUid();
+//        final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+//
+//      //fetch data from db
+//
+//        DocumentReference documentReference = db.collection("Users").document(userID);
+//        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+//                if (value != null){
+//                    navUsername.setText(value.getString("Username"));
+//
+//                }
+//            }
+//        });
+//    }
 
-        View headerView = navigationView.getHeaderView(0);
-        TextView navUsername =  headerView.findViewById(R.id.usernameHeader);
-        userID = firebaseAuth.getCurrentUser().getUid();
-        final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
-      //fetch data from db
-
-        DocumentReference documentReference = db.collection("Users").document(userID);
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (value != null){
-                    navUsername.setText(value.getString("Username"));
-
-                }
-            }
-        });
-    }
-    public void  loginCounter(){
-        userID = firebaseAuth.getCurrentUser().getUid();
-        //register user in cloud firestore
-         double[] loginCounter = new double[1];
-        DocumentReference documentReference = db.collection("Users").document(userID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (value!=null){
-                    loginCounter[0] =value.getDouble("Login");
-                }
-            }
-        });
-        Map<String,Object> user = new HashMap<>();
-        user.put("Login",loginCounter[0]+=1);
-
-        documentReference.set(user, SetOptions.merge());
-    }
 
 
 }

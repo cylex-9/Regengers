@@ -25,6 +25,7 @@ public class MainActivity extends BaseActivity {
         Button btnList = findViewById(R.id.ListButton);
 
         Button logInBtn = findViewById(R.id.logInBtn);
+        Button signUpBtn= findViewById(R.id.signUpBtn);
         Button homePageBtn=findViewById(R.id.homePageBtn);
 
         btnList.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,14 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(loginIntent);
+            }
+        });
+
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,SignupActivity.class);
+                startActivity(intent);
             }
         });
 

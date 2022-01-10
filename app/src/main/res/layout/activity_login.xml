@@ -112,7 +112,6 @@
             android:id="@+id/forgotPas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:gravity="right"
             android:paddingTop="10dp"
             android:text="Forgot Password?"

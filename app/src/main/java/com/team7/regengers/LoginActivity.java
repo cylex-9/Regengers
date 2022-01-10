@@ -140,7 +140,6 @@ public class LoginActivity extends AppCompatActivity {
                                     });
 
                                     Intent intent;
-                                    //if is 1st time go to biometrics else go to home
 
                                         intent = new Intent(LoginActivity.this, MainActivity.class);
 

@@ -6,5 +6,9 @@
     <string name="title_activity_network">NetworkActivity</string>
     <string name="next_page">Next Page</string>
     <string name="previous_page">Previous Page</string>
+    <string name="hero_name_tag">Hero Name:</string>
+    <string name="description_tag">Description:</string>
+    <string name="fab_content_desc">favorite</string>
+    <string name="black">#FF000000</string>
 
 </resources>

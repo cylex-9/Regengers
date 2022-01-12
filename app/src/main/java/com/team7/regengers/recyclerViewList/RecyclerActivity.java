@@ -1,9 +1,5 @@
 package com.team7.regengers.recyclerViewList;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,7 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.team7.regengers.R;
+import com.team7.regengers.heroDetails.HeroActivity;
 import com.team7.regengers.networking.JsonHeroResponse;
 import com.team7.regengers.networking.JsonResponse;
 import com.team7.regengers.networking.NetworkActivity;
@@ -45,8 +46,10 @@ public class RecyclerActivity extends AppCompatActivity {
         theResponse.add((JsonResponse) getIntent().getSerializableExtra("JsonResponse"));
 
         // Set whether or not the 'Previous' & 'Next' buttons are Visible, according to the page
-        if(theResponse.get(currentPart).getData().getCount()!=100) btnNext.setVisibility(View.GONE);
-        else if(theResponse.get(currentPart).getData().getOffset()==0) btnPrev.setVisibility(View.GONE);
+        if (theResponse.get(currentPart).getData().getCount() != 100)
+            btnNext.setVisibility(View.GONE);
+        else if (theResponse.get(currentPart).getData().getOffset() == 0)
+            btnPrev.setVisibility(View.GONE);
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +60,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
                 // If 'Next' btn is pressed send string msg to increase page marker by 1
                 Intent toNextIntent = new Intent(RecyclerActivity.this, NetworkActivity.class);
-                toNextIntent.putExtra("currentPage","nextOne");
+                toNextIntent.putExtra("currentPage", "nextOne");
                 startActivity(toNextIntent);
                 finish();
             }
@@ -72,7 +75,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
                 // If 'Previous' btn is pressed send string msg to decrease page marker by 1
                 Intent toPrevIntent = new Intent(RecyclerActivity.this, NetworkActivity.class);
-                toPrevIntent.putExtra("currentPage","previousOne");
+                toPrevIntent.putExtra("currentPage", "previousOne");
                 startActivity(toPrevIntent);
                 finish();
             }
@@ -81,7 +84,14 @@ public class RecyclerActivity extends AppCompatActivity {
         myAdapter = new MyAdapter(getDataList(), new MyAdapter.OnItemClickListener() {
             @Override
             public void onClick(View v, String data) {
-                // Will add this later
+                for (JsonHeroResponse h : theResponse.get(currentPart).getData().getResults()
+                ) {
+                    if (data.equalsIgnoreCase(h.getName())) {
+                        Intent heroDeetsIntent = new Intent(RecyclerActivity.this, HeroActivity.class);
+                        heroDeetsIntent.putExtra("myHero", h);
+                        startActivity(heroDeetsIntent);
+                    }
+                }
             }
         });
         // Set an Adapter to handle the files
@@ -91,8 +101,8 @@ public class RecyclerActivity extends AppCompatActivity {
     private List<JsonHeroResponse> getDataList() {
         List<JsonHeroResponse> list = new ArrayList<>();
         // Sends the right part of the list for the Adapter to showcase
-        for (JsonHeroResponse h: theResponse.get(currentPart).getData().getResults()
-             ) {
+        for (JsonHeroResponse h : theResponse.get(currentPart).getData().getResults()
+        ) {
             list.add(h);
         }
         return list;

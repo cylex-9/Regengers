@@ -17,24 +17,32 @@ import java.util.List;
 
 public class NormalAdapter extends RecyclerView.Adapter<NormalViewHolder>  {
 
-    private JsonHeroResponse myHero;
+    public interface OnItemClickListener {
+        void onClick(View v, int pos, boolean isClicked, RecyclerView rcv);
+    }
 
-    public NormalAdapter(JsonHeroResponse myHero) {
+    private JsonHeroResponse myHero;
+    private OnItemClickListener listener;
+    private boolean isClicked;
+
+    public NormalAdapter(JsonHeroResponse myHero, OnItemClickListener listener) {
         this.myHero = myHero;
+        this.listener = listener;
+        this.isClicked = true;
     }
 
     @NonNull
     @Override
     public NormalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
-        return new NormalViewHolder(view);
+        return new NormalViewHolder(view, listener, isClicked);
     }
 
     @Override
     public void onBindViewHolder(@NonNull NormalViewHolder holder, int position) {
         if (position == 0 || position == 2) {
         } else {
-            holder.bind(heroStrings(myHero).get(position), position, mediaLists(myHero), myHero.getUrls());
+            holder.bind(heroStrings(myHero).get(position), position);
         }
     }
 
@@ -54,8 +62,8 @@ public class NormalAdapter extends RecyclerView.Adapter<NormalViewHolder>  {
                 return R.layout.holder_item_view_d_tag;
             case 3:
                 return R.layout.holder_item_view_desc;
-            case 4:
-                return R.layout.holder_item_view_expand_list;
+            case 4: case 5: case 6: case 7: case 8:
+                return R.layout.holder_parent_item_view;
             default:
                 return -1;
         }
@@ -68,20 +76,13 @@ public class NormalAdapter extends RecyclerView.Adapter<NormalViewHolder>  {
         heroStrings.add(hero.getName());
         heroStrings.add("Description: ");
         heroStrings.add(hero.getDescription());
-        heroStrings.add("Extra Info");
+        heroStrings.add("Comics");
+        heroStrings.add("Series");
+        heroStrings.add("Stories");
+        heroStrings.add("Events");
+        heroStrings.add("Urls");
 
         return heroStrings;
-    }
-
-    public List<JsonMediaResponse> mediaLists(JsonHeroResponse hero){
-        List<JsonMediaResponse> mediaLists = new ArrayList<>();
-
-        mediaLists.add(hero.getComics());
-        mediaLists.add(hero.getSeries());
-        mediaLists.add(hero.getStories());
-        mediaLists.add(hero.getEvents());
-
-        return mediaLists;
     }
 
 }

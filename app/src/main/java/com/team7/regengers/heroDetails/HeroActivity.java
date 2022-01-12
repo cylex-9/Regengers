@@ -35,7 +35,14 @@ public class HeroActivity extends AppCompatActivity {
 
         ImageView heroImg = findViewById(R.id.hero_image);
         RecyclerView myRecView = findViewById(R.id.scrolling_rec);
-        myRecView.setAdapter(new NormalAdapter(myHero));
+        myRecView.setAdapter(new NormalAdapter(myHero, new NormalAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(View v, int pos, boolean isClicked, RecyclerView childRec) {
+                if(isClicked) childRec.setVisibility(View.VISIBLE);
+                else childRec.setVisibility(View.GONE);
+                childRec.setAdapter(new SmallAdapter(mediaLists(myHero), myHero.getUrls(), pos));
+            }
+        }));
 
         String linkToImg = myHero.getThumbnail().toString();
 
@@ -43,17 +50,6 @@ public class HeroActivity extends AppCompatActivity {
                 .load(linkToImg)
                 .into(heroImg);
 
-    }
-
-    public List<String> heroStrings(JsonHeroResponse hero) {
-        List<String> heroStrings = new ArrayList<>();
-
-        heroStrings.add("Hero Name: ");
-        heroStrings.add(hero.getName());
-        heroStrings.add("Description: ");
-        heroStrings.add(hero.getDescription());
-
-        return heroStrings;
     }
 
     public List<JsonMediaResponse> mediaLists(JsonHeroResponse hero){
@@ -66,6 +62,5 @@ public class HeroActivity extends AppCompatActivity {
 
         return mediaLists;
     }
-
 
 }

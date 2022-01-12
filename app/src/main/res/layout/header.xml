@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="220dp"
     android:orientation="vertical"
-    android:background="@color/teal_200"
+    android:background="@color/teal_700"
     android:gravity="bottom"
     android:paddingTop="30dp"
     android:paddingBottom="15dp"

@@ -6,6 +6,9 @@
     <string name="title_activity_network">NetworkActivity</string>
     <string name="next_page">Next Page</string>
     <string name="previous_page">Previous Page</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">441275463894635</string>
     <string name="hero_name_tag">Hero Name:</string>
     <string name="description_tag">Description:</string>
     <string name="fab_content_desc">favorite</string>

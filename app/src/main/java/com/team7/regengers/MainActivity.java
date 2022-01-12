@@ -2,6 +2,7 @@ package com.team7.regengers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.HardwarePropertiesManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,6 +24,10 @@ public class MainActivity extends BaseActivity {
         ImageView regenLogo = findViewById(R.id.RevengersLogo);
         Button btnList = findViewById(R.id.ListButton);
 
+        Button logInBtn = findViewById(R.id.logInBtn);
+        Button signUpBtn= findViewById(R.id.signUpBtn);
+        Button homePageBtn=findViewById(R.id.homePageBtn);
+
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +38,31 @@ public class MainActivity extends BaseActivity {
                 Intent toListIntent = new Intent(MainActivity.this, NetworkActivity.class);
                 toListIntent.putExtra("currentPage","firstPage");
                 startActivity(toListIntent);
+            }
+        });
+
+        logInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
+            }
+        });
+
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        homePageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
         });
 

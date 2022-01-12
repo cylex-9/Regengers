@@ -8,5 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#AE2413</color>
+    <color name="bluepurple_regen">#211bc4</color>
     <color name="heart_red">#851E1E</color>
+    <color name="teal_700">#00796B</color>
 </resources>

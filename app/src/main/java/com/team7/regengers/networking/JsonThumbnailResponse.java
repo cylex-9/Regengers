@@ -23,8 +23,16 @@ public class JsonThumbnailResponse implements Serializable {
         this.extension = extension;
     }
 
+    protected String finalPath(String pathB){
+        String[] breh;
+        breh = pathB.split(":");
+        pathB = breh[0].concat("s:").concat(breh[1]);
+
+        return pathB;
+    }
+
     @Override
     public String toString() {
-        return  path + "." + extension;
+        return  finalPath(path) + "." + extension;
     }
 }

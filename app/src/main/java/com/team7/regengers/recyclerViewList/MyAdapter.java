@@ -46,13 +46,9 @@ public class MyAdapter extends RecyclerView.Adapter<BaseViewHolder> implements F
 
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
-        ImageView imageView =  holder.itemView.findViewById(R.id.holder_list_img);
         String data = arrayData.get(position).getName();
         String currentUrl = arrayData.get(position).getThumbnail().toString();
-        Glide.with(holder.itemView.getContext())
-                .load(currentUrl)
-                .into(imageView);
-        holder.bind(data);
+        holder.bind(data, currentUrl);
         Log.d("TAG", "onBind position"+ position);
 
     }

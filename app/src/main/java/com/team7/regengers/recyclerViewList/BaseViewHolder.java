@@ -10,5 +10,5 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    abstract void bind(String data);
+    abstract void bind(String data, String imgUrl);
 }

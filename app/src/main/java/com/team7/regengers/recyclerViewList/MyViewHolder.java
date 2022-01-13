@@ -1,10 +1,14 @@
 package com.team7.regengers.recyclerViewList;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.GlideException;
 import com.team7.regengers.R;
 
 public class MyViewHolder extends BaseViewHolder {
@@ -16,8 +20,14 @@ public class MyViewHolder extends BaseViewHolder {
     }
 
     @Override
-    public void bind(String data) {
+    public void bind(String data, String imgUrl) {
         TextView textView = itemView.findViewById(R.id.holder_list_txt);
+        ImageView imageView =  itemView.findViewById(R.id.holder_list_img);
+
+        Glide.with(itemView.getContext())
+                .load(imgUrl)
+                .into(imageView);
+
         textView.setText(data);
 
         itemView.setOnClickListener(new View.OnClickListener() {

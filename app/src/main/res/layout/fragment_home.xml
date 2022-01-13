@@ -23,21 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Name"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="55dp"
         android:textSize="20sp"
         android:textColor="@color/purple_700"
         />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ListButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_padding"
-        android:layout_marginBottom="@dimen/default_padding"
-        android:text="@string/ListOfHeroes"
-        app:layout_constraintBottom_toBottomOf="@id/usernameField"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@id/RevengersLogo" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_bar"
@@ -55,6 +46,57 @@
             android:layout_height="wrap_content"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ListButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="@dimen/default_padding"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:text="@string/ListOfHeroes"
+        app:layout_constraintBottom_toBottomOf="@id/usernameField"
+        android:layout_gravity="center_horizontal"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:text="Share your Hero"
+        app:layout_constraintBottom_toBottomOf="@id/ListButton"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/bluepurple_regen"
+        android:textSize="15sp"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="15dp"
+        app:strokeColor="@color/bluepurple_regen"
+        app:strokeWidth="2dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/check"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:text="Check your Friends Activity"
+        app:layout_constraintBottom_toBottomOf="@id/ListButton"
+        android:layout_gravity="center_horizontal"
+
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:backgroundTint="@color/bluepurple_regen"
+        app:cornerRadius="15dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="2dp"
+        />
 
 
 

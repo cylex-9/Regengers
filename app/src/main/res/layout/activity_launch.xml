@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    tools:context=".LaunchActivity"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginHorizontal="20dp"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        app:srcCompat="@drawable/revengerslogo" />
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="0dp"
+        android:text="Welcome to Regen-World!"
+        android:textColor="@color/bluepurple_regen"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/logInBtn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="5dp"
+        android:background="#A56EA5"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Log In"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/signUpBtn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Sign Up"
+        android:textColor="@color/bluepurple_regen"
+        android:textSize="18sp"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="15dp"
+        app:strokeColor="@color/bluepurple_regen"
+        app:strokeWidth="2dp" />
+
+    <TextView
+        android:id="@+id/orSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="or sign in with"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="10dp"
+        >
+
+
+
+        <ImageView
+            android:id="@+id/facebookImg"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            app:srcCompat="@drawable/facebook" />
+
+        <ImageView
+
+            android:id="@+id/googleImg"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="10dp"
+            app:srcCompat="@drawable/google" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

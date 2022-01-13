@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:headerLayout="@layout/header"
+        android:layout_marginTop="50dp"
         app:menu="@menu/side_menu"
         android:layout_gravity="start"
         android:id="@+id/side_menu"/>
